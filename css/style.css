@@ -397,6 +397,38 @@ Together they create a realistic light bloom effect.
 .tag-tool  { background: rgba(68, 187, 255, 0.2); color: var(--accent-ice); }
 .tag-rip   { background: rgba(255, 68, 68, 0.2);  color: var(--accent-danger); }
 
+/*
+.card-link wraps a whole card in an <a> tag.
+We reset the link's default styles so it doesn't
+look like a blue underlined hyperlink.
+display: block makes it fill the grid cell fully.
+*/
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/*
+"Read build →" hint — hidden by default,
+slides in from the left on hover.
+*/
+.card-arrow {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--accent-primary);
+    font-family: 'Cinzel', serif;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card-link:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 /* ── 6. FOOTER ──────────────────────────────────────────────
    Sits at the bottom. Centered, muted colors.

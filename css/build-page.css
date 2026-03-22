@@ -1,0 +1,296 @@
+/*
+============================================================
+BUILD-PAGE.CSS — Styles specific to build detail pages
+============================================================
+We keep these separate from style.css because they only
+apply to build pages, not the home page. Loading only
+what you need is good practice.
+============================================================
+*/
+
+
+/* ── BACK LINK ──────────────────────────────────────────────── */
+.back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.back-link:hover {
+    color: var(--accent-primary);
+}
+
+
+/* ── BUILD HERO ─────────────────────────────────────────────── */
+.build-hero {
+    padding: 3rem 2rem;
+}
+
+.build-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.build-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+/* Badges row — coloured pills showing build properties */
+.build-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+    border: 1px solid transparent;
+}
+
+.badge-green { background: rgba(68, 200, 100, 0.15); color: #44c864; border-color: rgba(68, 200, 100, 0.3); }
+.badge-gold  { background: rgba(200, 162, 78, 0.15); color: var(--accent-primary); border-color: rgba(200, 162, 78, 0.3); }
+.badge-blue  { background: rgba(68, 187, 255, 0.15); color: var(--accent-ice); border-color: rgba(68, 187, 255, 0.3); }
+
+
+/* ── PAGE LAYOUT ────────────────────────────────────────────── */
+/*
+Two-column layout: main content on the left,
+quick-reference sidebar on the right.
+
+On mobile (see bottom) it stacks into one column.
+*/
+.build-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    align-items: start;
+}
+
+
+/* ── BUILD SECTIONS (left column) ───────────────────────────── */
+.build-section {
+    margin-bottom: 2.5rem;
+}
+
+.build-section h2 {
+    font-size: 1.4rem;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--bg-card-hover);
+}
+
+.build-section p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+}
+
+
+/* ── PROS & CONS ────────────────────────────────────────────── */
+.pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pros, .cons {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+}
+
+.pros { border-left: 3px solid #44c864; }
+.cons { border-left: 3px solid var(--accent-danger); }
+
+.pros h3 { color: #44c864; margin-bottom: 0.75rem; font-size: 1rem; }
+.cons h3 { color: var(--accent-danger); margin-bottom: 0.75rem; font-size: 1rem; }
+
+.pros ul, .cons ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.pros ul li, .cons ul li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+/* ── SKILL LIST ─────────────────────────────────────────────── */
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1rem;
+    border: 1px solid var(--bg-card-hover);
+}
+
+.skill-icon { font-size: 1.8rem; flex-shrink: 0; }
+
+.skill-info h3 {
+    color: var(--accent-primary);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.skill-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+
+/* ── HC WARNING BOX ─────────────────────────────────────────── */
+.hc-warning {
+    background: rgba(255, 68, 68, 0.05);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.hc-warning h2 { border-color: rgba(255, 68, 68, 0.3); }
+
+.tip-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tip-list li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent-danger);
+}
+
+
+/* ── SIDEBAR ────────────────────────────────────────────────── */
+/*
+position: sticky keeps the sidebar visible as you scroll
+the main content. It stays in view until you reach the
+bottom of the layout.
+*/
+.build-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 80px;  /* 80px = height of the nav bar */
+}
+
+.sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-hover);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+}
+
+.sidebar-card h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--bg-card-hover);
+}
+
+/* Stat table in the "At a Glance" sidebar card */
+.stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.stat-table td {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--bg-card-hover);
+}
+
+.stat-table td:first-child { color: var(--text-dim); }
+.stat-table td:last-child  { color: var(--text-bright); text-align: right; }
+.stat-table tr:last-child td { border-bottom: none; }
+
+/* Gear priority list */
+.gear-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.gear-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.priority {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+}
+
+.priority.high { background: rgba(255, 68, 68, 0.2); color: var(--accent-danger); }
+.priority.med  { background: rgba(200, 162, 78, 0.2); color: var(--accent-primary); }
+.priority.low  { background: rgba(68, 187, 255, 0.2); color: var(--accent-ice); }
+
+/* Star ratings */
+.rating-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stars { color: var(--accent-primary); letter-spacing: 2px; }
+
+
+/* ── MOBILE ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .build-layout {
+        grid-template-columns: 1fr;  /* Stack into one column */
+    }
+
+    .build-sidebar {
+        position: static;  /* Remove sticky on mobile */
+    }
+
+    .pros-cons {
+        grid-template-columns: 1fr;  /* Stack pros/cons too */
+    }
+}
