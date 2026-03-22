@@ -104,24 +104,30 @@ not just how it looks. This helps screen readers and SEO.
 <body>
 
     <!-- ========== NAVIGATION ========== -->
+    <!--
+    The nav is split into 3 columns using CSS Grid:
+      Left  = first group of links
+      Center = logo (always perfectly centered)
+      Right = second group of links
+    On mobile, all links stack vertically under the logo.
+    -->
     <nav>
-        <a href="#" class="logo">WRAECLAST<span> HC</span></a>
-
-        <!--
-        This button is INVISIBLE on desktop (hidden via CSS).
-        On mobile it appears as the ☰ icon.
-        aria-label tells screen readers what the button does
-        — good accessibility practice.
-        aria-expanded tells screen readers if the menu is open.
-        -->
         <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
             <span class="hamburger-icon">☰</span>
         </button>
 
-        <ul class="nav-links">
+        <ul class="nav-links nav-left">
             <li><a href="#guides">Guides</a></li>
             <li><a href="#builds">Builds</a></li>
             <li><a href="#journal">Journal</a></li>
+        </ul>
+
+        <a href="#" class="logo">
+            <span class="logo-skull">☠</span>
+            <span class="logo-text">WRAECLAST<em> HC</em></span>
+        </a>
+
+        <ul class="nav-links nav-right">
             <li><a href="#tools">Tools</a></li>
             <li><a href="#community">Community</a></li>
         </ul>
@@ -129,8 +135,13 @@ not just how it looks. This helps screen readers and SEO.
 
     <!-- ========== HERO SECTION ========== -->
     <header class="hero">
-        <h1>Path of Exile 2 — HC SSF</h1>
+        <p class="hero-eyebrow">Wraeclast HC — Fan Site</p>
+        <h1>Path of Exile 2<br><span class="hero-sub">Hardcore · Solo Self-Found</span></h1>
         <p class="tagline">One life. No trade. <em>No mercy.</em></p>
+        <div class="hero-actions">
+            <a href="#builds" class="hero-btn hero-btn-primary">Explore Builds</a>
+            <a href="tools/rip-tracker.html" class="hero-btn hero-btn-secondary">RIP Tracker</a>
+        </div>
         <div class="hero-stats">
             <div class="stat">
                 <span class="stat-number">HC</span>
@@ -156,19 +167,19 @@ not just how it looks. This helps screen readers and SEO.
             <p class="section-subtitle">Knowledge is the difference between life and Standard league.</p>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon">🛡️</div>
+                    <div class="card-icon">✦</div>
                     <h3>HC SSF Starter Guide</h3>
                     <p>Everything you need to know before your first character. Defenses, flask management, and the golden rule: if in doubt, log out.</p>
                     <span class="tag tag-guide">Guide</span>
                 </div>
                 <div class="card">
-                    <div class="card-icon">⚔️</div>
+                    <div class="card-icon">✠</div>
                     <h3>Boss Mechanics Cheatsheet</h3>
                     <p>Visual breakdowns of every endgame boss. Know the one-shots before they know you.</p>
                     <span class="tag tag-guide">Guide</span>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🔧</div>
+                    <div class="card-icon">◈</div>
                     <h3>Crafting for SSF</h3>
                     <p>No trade means crafting IS your economy. Essence, fossil, and harvest strategies that actually work.</p>
                     <span class="tag tag-guide">Guide</span>
@@ -188,25 +199,31 @@ not just how it looks. This helps screen readers and SEO.
                 -->
                 <a href="builds/infernalist.html" class="card-link">
                     <div class="card">
-                        <div class="card-icon">🔥</div>
+                        <div class="card-icon">Ω</div>
                         <h3>Infernalist — Flame Wall Ignite</h3>
                         <p>Safe, strong, and SSF-friendly. Great league starter that scales well into endgame without chase uniques.</p>
                         <span class="tag tag-build">Build</span>
                         <span class="card-arrow">Read build →</span>
                     </div>
                 </a>
-                <div class="card">
-                    <div class="card-icon">❄️</div>
-                    <h3>Chronomancer — Frost Barrier</h3>
-                    <p>Maximum defense, maximum chill. Freeze everything before it touches you. The HC way.</p>
-                    <span class="tag tag-build">Build</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💀</div>
-                    <h3>Blood Mage — Exsanguinate</h3>
-                    <p>Live on the edge. Literally. This build uses your life as a resource — high risk, high reward.</p>
-                    <span class="tag tag-build">Build</span>
-                </div>
+                <a href="builds/chronomancer.html" class="card-link">
+                    <div class="card">
+                        <div class="card-icon">◈</div>
+                        <h3>Chronomancer — Frost Barrier</h3>
+                        <p>Maximum defense, maximum chill. Freeze everything before it touches you. The HC way.</p>
+                        <span class="tag tag-build">Build</span>
+                        <span class="card-arrow">Read build →</span>
+                    </div>
+                </a>
+                <a href="builds/bloodmage.html" class="card-link">
+                    <div class="card">
+                        <div class="card-icon">☠</div>
+                        <h3>Blood Mage — Flameblast Ignite</h3>
+                        <p>Your life is the price. Channel fire, stack curses, detonate with Hexblast. High risk, devastating reward.</p>
+                        <span class="tag tag-build">Build</span>
+                        <span class="card-arrow">Read build →</span>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -216,13 +233,13 @@ not just how it looks. This helps screen readers and SEO.
             <p class="section-subtitle">Chronicles from the front lines. Every death is a lesson.</p>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon">📖</div>
+                    <div class="card-icon">Ι</div>
                     <h3>Day 1 — A New Beginning</h3>
                     <p>Starting fresh in HC SSF. The plan, the build, the dream. Let's see how long this one lasts...</p>
                     <span class="tag tag-rip">Journal</span>
                 </div>
                 <div class="card">
-                    <div class="card-icon">💀</div>
+                    <div class="card-icon">✠</div>
                     <h3>RIP #47 — The Disconnect</h3>
                     <p>Level 89. Mapping comfortably. Then the internet decided otherwise. F.</p>
                     <span class="tag tag-rip">RIP</span>
@@ -236,14 +253,14 @@ not just how it looks. This helps screen readers and SEO.
             <p class="section-subtitle">Gear up before you gear up.</p>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon">🧮</div>
+                    <div class="card-icon">Σ</div>
                     <h3>EHP Calculator</h3>
                     <p>Calculate your Effective Hit Points across all damage types. Know exactly how tanky you really are.</p>
                     <span class="tag tag-tool">Tool</span>
                 </div>
                 <a href="tools/rip-tracker.html" class="card-link">
                     <div class="card">
-                        <div class="card-icon">📊</div>
+                        <div class="card-icon">◈</div>
                         <h3>RIP Tracker</h3>
                         <p>Log your deaths, track patterns, and (hopefully) learn from them.</p>
                         <span class="tag tag-tool">Tool</span>
@@ -259,13 +276,13 @@ not just how it looks. This helps screen readers and SEO.
             <p class="section-subtitle">You play solo, but you don't have to learn solo.</p>
             <div class="card-grid">
                 <div class="card">
-                    <div class="card-icon">💬</div>
+                    <div class="card-icon">✦</div>
                     <h3>Discord Server</h3>
                     <p>Join fellow HC SSF exiles. Share your RIPs, celebrate your victories, and debate the meta.</p>
                     <span class="tag tag-guide">Community</span>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🏆</div>
+                    <div class="card-icon">⬡</div>
                     <h3>HC SSF Leaderboard</h3>
                     <p>Track who's pushing the highest levels this league. Will your name be next?</p>
                     <span class="tag tag-tool">Leaderboard</span>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Mage — Flameblast Ignite | WRAECLAST HC</title>
+
+    <meta name="description" content="Full HC SSF build guide for the Blood Mage Flameblast Ignite. Channel fire, stack curses, detonate with Hexblast. High risk, devastating reward.">
+    <meta property="og:title" content="Blood Mage — Flameblast Ignite | WRAECLAST HC">
+    <meta property="og:description" content="Your life is the price. Flameblast ignite with curse stacking and Hexblast detonation.">
+    <meta property="og:url" content="https://ninotsenov101.github.io/poe2-hc-ssf/builds/bloodmage.html">
+
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/build-page.css">
+
+    <style>
+        :root {
+            --build-accent: #c84040;   /* blood crimson — Blood Mage's theme colour */
+        }
+
+        /* Tint the hero icon with blood colour */
+        .build-hero .card-icon {
+            border-color: rgba(200, 64, 64, 0.55);
+            color: var(--build-accent);
+            box-shadow: 0 0 18px rgba(200, 64, 64, 0.15);
+        }
+
+        /* Section h2 underlines in crimson */
+        .build-section h2 {
+            color: var(--build-accent);
+        }
+
+        /* Sidebar headings */
+        .sidebar-card h3 {
+            color: var(--build-accent);
+        }
+
+        /* Star ratings */
+        .stars { color: var(--build-accent); }
+
+        /* Skill icons: blood-coloured border tint */
+        .skill-icon { border-color: rgba(200, 64, 64, 0.45); }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+        </button>
+
+        <ul class="nav-links nav-left">
+            <li><a href="../index.html#guides">Guides</a></li>
+            <li><a href="../index.html#builds">Builds</a></li>
+            <li><a href="../index.html#journal">Journal</a></li>
+        </ul>
+
+        <a href="../index.html" class="logo">
+            <span class="logo-skull">☠</span>
+            <span class="logo-text">WRAECLAST<em> HC</em></span>
+        </a>
+
+        <ul class="nav-links nav-right">
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== BUILD HERO ========== -->
+    <header class="hero build-hero">
+        <div class="build-hero-content">
+            <a href="../index.html#builds" class="back-link">← Back to Builds</a>
+            <div class="card-icon" style="width: 64px; height: 64px; font-size: 2rem; margin: 0 auto 1rem;">☠</div>
+            <h1>Blood Mage</h1>
+            <p class="build-subtitle">Flameblast Ignite</p>
+            <p class="tagline">Your life is the price. <em>Pay it willingly.</em></p>
+            <div class="build-badges">
+                <span class="badge badge-green">HC Viable</span>
+                <span class="badge badge-gold">High Damage</span>
+                <span class="badge badge-blue">Advanced</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== BUILD CONTENT ========== -->
+    <main>
+        <div class="build-layout">
+
+            <!-- ── LEFT COLUMN: Main content ── -->
+            <div class="build-main">
+
+                <!-- Overview -->
+                <section class="build-section">
+                    <h2>Overview</h2>
+                    <p>
+                        The Blood Mage turns fire and blood into a single devastating weapon. This build
+                        channels Flameblast to release catastrophic ignites, then layers curses —
+                        Despair weakening enemies to chaos damage, Temporal Chains slowing everything
+                        around you — before detonating all accumulated hexes with Hexblast for a
+                        single enormous chaos burst.
+                    </p>
+                    <p>
+                        The HC challenge: Flameblast requires you to stand still and channel. In HC,
+                        standing still gets you killed. Mastering this build means knowing exactly when
+                        it is safe to channel — and when to run. The payoff is enormous damage that
+                        trivialises endgame content when played correctly.
+                    </p>
+                    <p>
+                        SSF note: The core loop (Flameblast + Despair + Hexblast) works on rares.
+                        No mandatory uniques, but good fire damage and life rolls on gear will
+                        dramatically increase your margin for error.
+                    </p>
+                </section>
+
+                <!-- Pros & Cons -->
+                <section class="build-section">
+                    <h2>Pros & Cons</h2>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>✔ Pros</h3>
+                            <ul>
+                                <li>Massive Flameblast ignite damage</li>
+                                <li>Hexblast melts bosses instantly</li>
+                                <li>Temporal Chains slows all enemies</li>
+                                <li>Despair amplifies all damage significantly</li>
+                                <li>No mandatory uniques</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>✘ Cons</h3>
+                            <ul>
+                                <li>Channeling is dangerous in HC</li>
+                                <li>Fire-resistant enemies reduce damage</li>
+                                <li>Reflect maps are instantly lethal</li>
+                                <li>Mana hungry — careful flask management needed</li>
+                                <li>Advanced build — not beginner friendly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Skills -->
+                <section class="build-section">
+                    <h2>Key Skills</h2>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Flameblast.png" alt="Flameblast"></div>
+                            <div class="skill-info">
+                                <h3>Flameblast</h3>
+                                <p>Your primary damage skill. Channel to build stacks, then release for a massive fire explosion that applies a devastating ignite. The bigger the channel, the bigger the ignite.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Incinerate.png" alt="Incinerate"></div>
+                            <div class="skill-info">
+                                <h3>Incinerate</h3>
+                                <p>Sustained fire beam for continuous ignite stacking. Use this to keep ignites ticking on groups of enemies while you reposition for the next Flameblast.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Despair.png" alt="Despair"></div>
+                            <div class="skill-info">
+                                <h3>Despair</h3>
+                                <p>Your main curse. Increases chaos damage taken by the target — which amplifies Hexblast enormously. Apply before every boss fight, no exceptions.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Blasphemy.png" alt="Blasphemy"></div>
+                            <div class="skill-info">
+                                <h3>Blasphemy + Temporal Chains</h3>
+                                <p>Blasphemy converts Temporal Chains into a permanent aura that permanently slows every nearby enemy. This is your safety net — slower enemies give you more time to channel safely.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Hexblast.png" alt="Hexblast"></div>
+                            <div class="skill-info">
+                                <h3>Hexblast</h3>
+                                <p>Detonates all curses on a target for massive chaos damage. Your boss killer. Stack Despair and Temporal Chains on the boss, then unload Hexblast for a devastating burst.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HC Tips -->
+                <section class="build-section hc-warning">
+                    <h2>⚠ HC SSF Specific Tips</h2>
+                    <ul class="tip-list">
+                        <li>Never channel Flameblast without a clear escape route — one bad position is a RIP</li>
+                        <li>Temporal Chains slows enemies but doesn't stop one-shots — always maintain distance</li>
+                        <li>Apply Despair before every boss encounter — the damage amplification is not optional</li>
+                        <li>Reflect maps will kill you instantly — skip them, always</li>
+                        <li>Keep a life flask with instant recovery on your left mouse button, not buried in your belt</li>
+                        <li>Fire resistance at 75% before maps. Chaos resistance matters too for deep endgame.</li>
+                        <li>When in doubt, use Hexblast first on dangerous rares — eliminate the threat before it eliminates you</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- ── RIGHT COLUMN: Quick reference ── -->
+            <aside class="build-sidebar">
+
+                <div class="sidebar-card">
+                    <h3>At a Glance</h3>
+                    <table class="stat-table">
+                        <tr><td>Class</td><td>Witch</td></tr>
+                        <tr><td>Ascendancy</td><td>Blood Mage</td></tr>
+                        <tr><td>Damage Type</td><td>Fire · Ignite · Chaos</td></tr>
+                        <tr><td>Playstyle</td><td>Channel DoT</td></tr>
+                        <tr><td>Difficulty</td><td>Advanced</td></tr>
+                    </table>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Gear Priority</h3>
+                    <ol class="gear-list">
+                        <li>Fire resistance cap <span class="priority high">Critical</span></li>
+                        <li>Life on gear <span class="priority high">Critical</span></li>
+                        <li>Fire damage / ignite <span class="priority med">Important</span></li>
+                        <li>Mana regeneration <span class="priority med">Important</span></li>
+                        <li>Chaos resistance <span class="priority low">Nice to have</span></li>
+                    </ol>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Difficulty Rating</h3>
+                    <div class="rating-row"><span>HC Safety</span><div class="stars">★★★☆☆</div></div>
+                    <div class="rating-row"><span>SSF Ease</span><div class="stars">★★★☆☆</div></div>
+                    <div class="rating-row"><span>Boss Kill</span><div class="stars">★★★★☆</div></div>
+                    <div class="rating-row"><span>Clear Speed</span><div class="stars">★★★★☆</div></div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>Built with 💀 by a fellow HC SSF exile — <a href="../index.html">WRAECLAST HC</a></p>
+        <p style="margin-top: 0.5rem;">Path of Exile 2 is developed by Grinding Gear Games. This is an unofficial fan site.</p>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">▲</button>
+
+    <script src="../js/main.js" defer></script>
+
+</body>
+</html>

@@ -154,7 +154,24 @@ On mobile (see bottom) it stacks into one column.
     border: 1px solid var(--bg-card-hover);
 }
 
-.skill-icon { font-size: 1.8rem; flex-shrink: 0; }
+.skill-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 1px solid rgba(200, 162, 78, 0.4);
+    background: rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
 .skill-info h3 {
     color: var(--accent-primary);

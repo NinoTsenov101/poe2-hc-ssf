@@ -164,6 +164,42 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => observer.observe(section));
 
 
+// ── PAGE TRANSITION (EXIT) ───────────────────────────────────
+// When you click a link to a DIFFERENT page, the current page
+// fades out before the browser navigates away.
+//
+// How it works:
+//   1. Listen for clicks on any <a> link on the page
+//   2. Skip special cases: same-page anchors, external links,
+//      new-tab links, ctrl+click / cmd+click
+//   3. For same-site page links: add "page-exit" class to body,
+//      which triggers the CSS fade-out transition
+//   4. After 300ms (matching the CSS duration), navigate
+// ─────────────────────────────────────────────────────────────
+document.addEventListener('click', (e) => {
+    // Find the <a> tag that was clicked (even if the click was
+    // on something inside the link, like an icon or span)
+    const link = e.target.closest('a');
+    if (!link) return;                        // wasn't a link click
+
+    const href = link.getAttribute('href');
+    if (!href) return;                        // no destination
+    if (href.startsWith('#')) return;         // same-page anchor
+    if (href.startsWith('http') && !href.includes(location.hostname)) return; // external site
+    if (link.target === '_blank') return;     // opens in a new tab
+    if (e.metaKey || e.ctrlKey) return;       // ctrl/cmd+click = new tab
+
+    // It's a same-site page navigation — fade out first
+    e.preventDefault();
+    document.body.classList.add('page-exit');
+
+    // Wait for the CSS transition to finish, then navigate
+    setTimeout(() => {
+        window.location.href = href;
+    }, 280);
+});
+
+
 // ── CONSOLE EASTER EGG ───────────────────────────────────────
 // Open DevTools (F12) → Console tab to see this.
 // A little gift for fellow developers who peek under the hood.

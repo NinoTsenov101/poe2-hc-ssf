@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronomancer — Frost Barrier | WRAECLAST HC</title>
+
+    <meta name="description" content="Full HC SSF build guide for the Chronomancer Frost Barrier. Freeze everything before it touches you. Maximum defence, maximum chill.">
+    <meta property="og:title" content="Chronomancer — Frost Barrier | WRAECLAST HC">
+    <meta property="og:description" content="Frozen enemies deal no damage. The safest way to play HC SSF.">
+    <meta property="og:url" content="https://ninotsenov101.github.io/poe2-hc-ssf/builds/chronomancer.html">
+
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/build-page.css">
+
+    <!--
+    Ice-themed colour override for this page only.
+    We redefine the accent-primary variable here so every
+    gold detail on this page turns ice-blue instead —
+    without touching any other page.
+    This is one of the most powerful features of CSS variables.
+    -->
+    <style>
+        :root {
+            --build-accent: #44bbff;   /* ice blue — Chronomancer's theme colour */
+        }
+
+        /* Tint the hero icon and title with ice colour */
+        .build-hero .card-icon {
+            border-color: rgba(68, 187, 255, 0.55);
+            color: var(--build-accent);
+            box-shadow: 0 0 18px rgba(68, 187, 255, 0.15);
+        }
+
+        /* Section h2 underlines in ice instead of gold */
+        .build-section h2 {
+            color: var(--build-accent);
+        }
+
+        /* Sidebar headings */
+        .sidebar-card h3 {
+            color: var(--build-accent);
+        }
+
+        /* Star ratings */
+        .stars { color: var(--build-accent); }
+
+        /* Skill icons: ice-coloured border tint for this page */
+        .skill-icon { border-color: rgba(68, 187, 255, 0.45); }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <!--
+    Same 3-column grid nav as the home page.
+    All links point to index.html#section because
+    we're on a sub-page (builds/ folder).
+    -->
+    <nav>
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+        </button>
+
+        <ul class="nav-links nav-left">
+            <li><a href="../index.html#guides">Guides</a></li>
+            <li><a href="../index.html#builds">Builds</a></li>
+            <li><a href="../index.html#journal">Journal</a></li>
+        </ul>
+
+        <a href="../index.html" class="logo">
+            <span class="logo-skull">☠</span>
+            <span class="logo-text">WRAECLAST<em> HC</em></span>
+        </a>
+
+        <ul class="nav-links nav-right">
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== BUILD HERO ========== -->
+    <header class="hero build-hero">
+        <div class="build-hero-content">
+            <a href="../index.html#builds" class="back-link">← Back to Builds</a>
+            <div class="card-icon" style="width: 64px; height: 64px; font-size: 2rem; margin: 0 auto 1rem;">◈</div>
+            <h1>Chronomancer</h1>
+            <p class="build-subtitle">Frost Barrier</p>
+            <p class="tagline">Freeze everything. <em>Before it touches you.</em></p>
+            <div class="build-badges">
+                <span class="badge badge-green">HC Viable</span>
+                <span class="badge badge-green">SSF Friendly</span>
+                <span class="badge badge-blue">Maximum Defence</span>
+                <span class="badge badge-blue">Intermediate</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== BUILD CONTENT ========== -->
+    <main>
+        <div class="build-layout">
+
+            <!-- ── LEFT COLUMN: Main content ── -->
+            <div class="build-main">
+
+                <!-- Overview -->
+                <section class="build-section">
+                    <h2>Overview</h2>
+                    <p>
+                        The Chronomancer turns time itself into a weapon — and in HC, time is survival.
+                        The Frost Barrier variant layers cold CC on top of the Chronomancer's inherent
+                        defensive mechanics: enemies that are frozen deal zero damage. If you can freeze it,
+                        it cannot kill you.
+                    </p>
+                    <p>
+                        The HC appeal is obvious. Where other builds race to kill enemies first,
+                        this one locks the entire screen in ice and methodically destroys it.
+                        Slower than fire builds — but you will rarely be surprised by a one-shot
+                        when everything around you is a statue.
+                    </p>
+                    <p>
+                        SSF note: the core damage loop (Frost Bolt into Comet) works entirely on
+                        rares. No mandatory uniques, but a good cold wand or sceptre found early
+                        will dramatically speed up your progression.
+                    </p>
+                </section>
+
+                <!-- Pros & Cons -->
+                <section class="build-section">
+                    <h2>Pros & Cons</h2>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3>✔ Pros</h3>
+                            <ul>
+                                <li>Near-permanent freeze on packs</li>
+                                <li>Exceptional HC safety rating</li>
+                                <li>Strong boss control with chill/freeze</li>
+                                <li>No mandatory uniques</li>
+                                <li>Time Warp can save your life mid-fight</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h3>✘ Cons</h3>
+                            <ul>
+                                <li>Freeze-immune bosses are terrifying</li>
+                                <li>Single target feels slow early on</li>
+                                <li>Mana hungry — needs careful flask management</li>
+                                <li>Clear speed lower than fire builds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Skills -->
+                <section class="build-section">
+                    <h2>Key Skills</h2>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Frostbolt.png" alt="Frost Bolt"></div>
+                            <div class="skill-info">
+                                <h3>Frost Bolt</h3>
+                                <p>Your main clear skill. Fires chilling projectiles that apply freeze to anything they hit. Chain-freeze entire packs before they reach you.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Comet.png" alt="Comet"></div>
+                            <div class="skill-info">
+                                <h3>Comet</h3>
+                                <p>Huge cold nuke — your boss killer. Drops a massive chunk of ice after a short delay. Freeze the boss first, then cast Comet while it can't move.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Snap.png" alt="Cold Snap"></div>
+                            <div class="skill-info">
+                                <h3>Cold Snap</h3>
+                                <p>Creates a chilling area that pulses damage and freeze. Excellent for dealing with dangerous rare mobs and keeping bosses locked in place.</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon"><img src="../assets/images/skills/Frostblink.png" alt="Frost Blink"></div>
+                            <div class="skill-info">
+                                <h3>Frost Blink</h3>
+                                <p>Your escape. Teleports you a short distance and leaves a burst of cold behind. In HC — this is as important as any damage skill.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- HC Tips -->
+                <section class="build-section hc-warning">
+                    <h2>⚠ HC SSF Specific Tips</h2>
+                    <ul class="tip-list">
+                        <li>Always scout for freeze-immune rare mods before engaging — they will not stop moving</li>
+                        <li>Comet has a cast delay — never stand still while channelling it in dangerous situations</li>
+                        <li>Keep a sapphire flask for emergency cold resistance drops in deep maps</li>
+                        <li>Freeze does not protect against bleed — always carry bleed removal on your life flask</li>
+                        <li>The Chronomancer's Time Warp ascendancy skill can literally reverse time — save it for life-threatening situations, not clear speed</li>
+                        <li>Cap cold resistance at 75% before entering yellow maps. Non-negotiable in HC.</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- ── RIGHT COLUMN: Quick reference ── -->
+            <aside class="build-sidebar">
+
+                <div class="sidebar-card">
+                    <h3>At a Glance</h3>
+                    <table class="stat-table">
+                        <tr><td>Class</td><td>Sorceress</td></tr>
+                        <tr><td>Ascendancy</td><td>Chronomancer</td></tr>
+                        <tr><td>Damage Type</td><td>Cold · Freeze</td></tr>
+                        <tr><td>Playstyle</td><td>CC Control</td></tr>
+                        <tr><td>Difficulty</td><td>Intermediate</td></tr>
+                    </table>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Gear Priority</h3>
+                    <ol class="gear-list">
+                        <li>Cold resistance cap <span class="priority high">Critical</span></li>
+                        <li>Life on gear <span class="priority high">Critical</span></li>
+                        <li>Cold damage / freeze chance <span class="priority med">Important</span></li>
+                        <li>Mana regeneration <span class="priority med">Important</span></li>
+                        <li>Cast speed <span class="priority low">Nice to have</span></li>
+                    </ol>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Difficulty Rating</h3>
+                    <div class="rating-row"><span>HC Safety</span><div class="stars">★★★★★</div></div>
+                    <div class="rating-row"><span>SSF Ease</span><div class="stars">★★★☆☆</div></div>
+                    <div class="rating-row"><span>Boss Kill</span><div class="stars">★★★☆☆</div></div>
+                    <div class="rating-row"><span>Clear Speed</span><div class="stars">★★★★☆</div></div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>Built with 💀 by a fellow HC SSF exile — <a href="../index.html">WRAECLAST HC</a></p>
+        <p style="margin-top: 0.5rem;">Path of Exile 2 is developed by Grinding Gear Games. This is an unofficial fan site.</p>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">▲</button>
+
+    <script src="../js/main.js" defer></script>
+
+</body>
+</html>
