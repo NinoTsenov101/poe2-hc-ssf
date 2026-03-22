@@ -279,18 +279,44 @@ The browser interpolates between "from" and "to".
     padding-top: 0.5rem;
 }
 
+/* Shared styles for both header buttons */
+.rip-toggle,
 .rip-delete {
     background: none;
     border: none;
-    color: var(--text-dim);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.85rem;
     padding: 0 0.3rem;
     transition: color 0.2s ease;
     line-height: 1;
 }
 
+.rip-toggle {
+    color: var(--text-dim);
+}
+.rip-toggle:hover { color: var(--accent-primary); }
+
+.rip-delete {
+    color: var(--text-dim);
+}
 .rip-delete:hover { color: var(--accent-danger); }
+
+/*
+The card body collapses by animating max-height to 0.
+Same trick we used for the mobile nav menu.
+overflow: hidden clips the content so nothing peeks out.
+*/
+.rip-card-body {
+    max-height: 200px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.rip-card-body.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
 
 
 /* ── MOBILE ──────────────────────────────────────────────── */

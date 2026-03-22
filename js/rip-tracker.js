@@ -89,22 +89,30 @@ function renderDeaths(deaths) {
                 <span class="rip-char-name">☠ ${death.name}</span>
                 <div style="display:flex; align-items:center; gap:0.5rem;">
                     <span class="rip-date">${death.date}</span>
+                    <!--
+                    Two separate buttons now:
+                    - toggle: collapses/expands the card body
+                    - delete: actually removes the entry
+                    -->
+                    <button class="rip-toggle" title="Collapse / Expand">▼</button>
                     <button
                         class="rip-delete"
                         title="Delete this entry"
                         data-index="${deaths.length - 1 - index}"
-                    >✕</button>
+                    >🗑</button>
                 </div>
             </div>
-            <div class="rip-details">
-                <span class="rip-badge">${death.charClass}</span>
-                <span class="rip-badge level">Level ${death.level}</span>
-                <span class="rip-badge">${death.cause}</span>
+            <div class="rip-card-body">
+                <div class="rip-details">
+                    <span class="rip-badge">${death.charClass}</span>
+                    <span class="rip-badge level">Level ${death.level}</span>
+                    <span class="rip-badge">${death.cause}</span>
+                </div>
+                ${death.notes
+                    ? `<p class="rip-notes">"${death.notes}"</p>`
+                    : ''
+                }
             </div>
-            ${death.notes
-                ? `<p class="rip-notes">"${death.notes}"</p>`
-                : ''
-            }
         `;
         ripLog.appendChild(card);
     });
@@ -150,11 +158,22 @@ form.addEventListener('submit', (e) => {
 // clicks on any button inside the container, even ones
 // added later by JavaScript.
 ripLog.addEventListener('click', (e) => {
-    // Was it a delete button?
+
+    // ── TOGGLE: collapse/expand the card body ──
+    if (e.target.classList.contains('rip-toggle')) {
+        const card = e.target.closest('.rip-card');
+        const body = card.querySelector('.rip-card-body');
+        const isCollapsed = body.classList.toggle('collapsed');
+
+        // Swap the arrow direction to show the state
+        e.target.textContent = isCollapsed ? '▶' : '▼';
+    }
+
+    // ── DELETE: remove the entry permanently ──
     if (e.target.classList.contains('rip-delete')) {
         const indexToDelete = parseInt(e.target.dataset.index);
         const deaths = loadDeaths();
-        deaths.splice(indexToDelete, 1); // Remove 1 item at that index
+        deaths.splice(indexToDelete, 1);
         saveDeaths(deaths);
         renderDeaths(deaths);
     }
