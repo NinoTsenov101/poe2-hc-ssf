@@ -1,0 +1,305 @@
+/*
+============================================================
+RIP-TRACKER.CSS — Styles for the death tracker tool
+============================================================
+*/
+
+
+/* ── BACK LINK (reused from build page) ─────────────────── */
+.back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+.back-link:hover { color: var(--accent-primary); }
+
+
+/* ── DEATH COUNTER IN HERO ───────────────────────────────── */
+.rip-count {
+    margin-top: 1rem;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.rip-count span {
+    color: var(--accent-danger);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* ── PAGE LAYOUT ─────────────────────────────────────────── */
+.tracker-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    align-items: start;
+}
+
+
+/* ── FORM ────────────────────────────────────────────────── */
+.tracker-form-wrap {
+    position: sticky;
+    top: 80px;
+}
+
+.rip-form {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-hover);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/*
+<label> tells the user what each input is for.
+display: block puts the label on its own line above the input.
+*/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.optional {
+    color: var(--text-dim);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.75rem;
+}
+
+/* Shared styles for input, select, textarea */
+.rip-form input,
+.rip-form select,
+.rip-form textarea {
+    background: var(--bg-dark);
+    border: 1px solid var(--bg-card-hover);
+    border-radius: 6px;
+    color: var(--text-bright);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+    transition: border-color 0.2s ease;
+    width: 100%;
+}
+
+/* Highlight the active input with a gold border */
+.rip-form input:focus,
+.rip-form select:focus,
+.rip-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+/* Style the dropdown arrow to match the dark theme */
+.rip-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238a8a9a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2rem;
+    cursor: pointer;
+}
+
+.rip-form select option {
+    background: var(--bg-dark);
+}
+
+.rip-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.submit-btn {
+    background: rgba(255, 68, 68, 0.15);
+    border: 1px solid var(--accent-danger);
+    border-radius: var(--radius);
+    color: var(--accent-danger);
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background: rgba(255, 68, 68, 0.25);
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ── DEATH LOG ───────────────────────────────────────────── */
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.clear-btn {
+    background: none;
+    border: 1px solid var(--text-dim);
+    border-radius: var(--radius);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.clear-btn:hover {
+    border-color: var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+
+/* ── EMPTY STATE ─────────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+}
+
+.empty-state p:first-child {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p:nth-child(2) {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.empty-sub {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+
+/* ── RIP CARDS (created by JavaScript) ──────────────────── */
+.rip-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-hover);
+    border-left: 3px solid var(--accent-danger);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    animation: slideIn 0.3s ease;
+}
+
+/*
+Animate new cards sliding in from above.
+@keyframes defines a named animation sequence.
+The browser interpolates between "from" and "to".
+*/
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rip-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.rip-char-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--text-bright);
+}
+
+.rip-date {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.rip-details {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.rip-badge {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(255, 68, 68, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+}
+
+.rip-badge.level {
+    background: rgba(200, 162, 78, 0.1);
+    color: var(--accent-primary);
+    border-color: rgba(200, 162, 78, 0.2);
+}
+
+.rip-notes {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+    border-top: 1px solid var(--bg-card-hover);
+    padding-top: 0.5rem;
+}
+
+.rip-delete {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0 0.3rem;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+
+.rip-delete:hover { color: var(--accent-danger); }
+
+
+/* ── MOBILE ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .tracker-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .tracker-form-wrap {
+        position: static;
+    }
+}

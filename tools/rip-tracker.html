@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIP Tracker | WRAECLAST HC</title>
+
+    <meta name="description" content="Track every HC SSF death. Log your fallen exiles, see your patterns, learn from your mistakes.">
+    <meta property="og:title" content="RIP Tracker | WRAECLAST HC">
+    <meta property="og:url" content="https://ninotsenov101.github.io/poe2-hc-ssf/tools/rip-tracker.html">
+
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/rip-tracker.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <a href="../index.html" class="logo">WRAECLAST<span> HC</span></a>
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="../index.html#guides">Guides</a></li>
+            <li><a href="../index.html#builds">Builds</a></li>
+            <li><a href="../index.html#journal">Journal</a></li>
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero">
+        <div style="position: relative; z-index: 1;">
+            <a href="../index.html#tools" class="back-link">← Back to Tools</a>
+            <div class="card-icon" style="font-size: 3rem; margin: 1rem 0;">💀</div>
+            <h1>RIP Tracker</h1>
+            <p class="tagline">Every death is a <em>lesson.</em></p>
+            <!-- Live death counter — updated by JavaScript -->
+            <p class="rip-count">Total Deaths: <span id="death-count">0</span></p>
+        </div>
+    </header>
+
+    <main>
+        <div class="tracker-layout">
+
+            <!-- ── LEFT: Log a new death ── -->
+            <div class="tracker-form-wrap">
+                <h2 class="section-title">Log a Death</h2>
+                <p class="section-subtitle">Gone, but not forgotten.</p>
+
+                <!--
+                <form> groups all the inputs together.
+                We listen for its "submit" event in JavaScript
+                instead of individual button clicks — this also
+                handles pressing Enter inside a text field.
+                -->
+                <form class="rip-form" id="rip-form">
+
+                    <div class="form-group">
+                        <label for="char-name">Character Name</label>
+                        <input
+                            type="text"
+                            id="char-name"
+                            placeholder="e.g. Kaarindra"
+                            maxlength="30"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-class">Class</label>
+                        <!--
+                        <select> creates a dropdown menu.
+                        Each <option> is one item in the list.
+                        -->
+                        <select id="char-class" required>
+                            <option value="">— Select class —</option>
+                            <option>Witch</option>
+                            <option>Sorceress</option>
+                            <option>Ranger</option>
+                            <option>Mercenary</option>
+                            <option>Warrior</option>
+                            <option>Monk</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char-level">Level at Death</label>
+                        <input
+                            type="number"
+                            id="char-level"
+                            placeholder="e.g. 73"
+                            min="1"
+                            max="100"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="death-cause">Cause of Death</label>
+                        <select id="death-cause" required>
+                            <option value="">— What got you? —</option>
+                            <option>One-shot by boss</option>
+                            <option>Surrounded by monsters</option>
+                            <option>Volatile mobs</option>
+                            <option>Desynced/lag</option>
+                            <option>Disconnect</option>
+                            <option>Stood in fire</option>
+                            <option>Overconfidence</option>
+                            <option>Map modifier</option>
+                            <option>Reflect damage</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="death-notes">Notes <span class="optional">(optional)</span></label>
+                        <textarea
+                            id="death-notes"
+                            placeholder="What happened? What will you do differently?"
+                            rows="3"
+                            maxlength="200"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        ☠ Log Death
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- ── RIGHT: Death log ── -->
+            <div class="tracker-log-wrap">
+                <div class="log-header">
+                    <div>
+                        <h2 class="section-title">The Fallen</h2>
+                        <p class="section-subtitle">All who came before.</p>
+                    </div>
+                    <!--
+                    This button only shows when there are deaths logged.
+                    JavaScript shows/hides it.
+                    -->
+                    <button class="clear-btn" id="clear-btn" style="display:none">
+                        Clear All
+                    </button>
+                </div>
+
+                <!--
+                This empty div is our "canvas".
+                JavaScript will fill it with death cards.
+                When it's empty, we show the empty-state message.
+                -->
+                <div id="rip-log">
+                    <div class="empty-state" id="empty-state">
+                        <p>☠</p>
+                        <p>No deaths logged yet.</p>
+                        <p class="empty-sub">Stay alive, exile.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with 💀 by a fellow HC SSF exile — <a href="../index.html">WRAECLAST HC</a></p>
+        <p style="margin-top: 0.5rem;">Path of Exile 2 is developed by Grinding Gear Games. This is an unofficial fan site.</p>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">▲</button>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/rip-tracker.js" defer></script>
+
+</body>
+</html>
