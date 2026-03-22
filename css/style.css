@@ -9,6 +9,38 @@ Keeping them apart makes both files easier to read and edit.
 */
 
 
+/* ── GOTHIC FONT TRIALS ─────────────────────────────────────
+   To switch hero font: change --hero-font below to any of:
+     'Hostgard', 'CloisterBlack', 'KingthingsSpikeless',
+     'FTVortex', 'Deadway', 'EvilSound'
+   Each font file must be placed in assets/fonts/
+─────────────────────────────────────────────────────────── */
+@font-face {
+    font-family: 'Hostgard';
+    src: url('../assets/fonts/Hostgard.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'CloisterBlack';
+    src: url('../assets/fonts/CloisterBlack.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'KingthingsSpikeless';
+    src: url('../assets/fonts/KingthingsSpikeless.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'FTVortex';
+    src: url('../assets/fonts/FTVortex.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Deadway';
+    src: url('../assets/fonts/Deadway.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'EvilSound';
+    src: url('../assets/fonts/EvilSound.ttf') format('truetype');
+}
+
+
 /* ── 1. CSS VARIABLES (Custom Properties) ───────────────────
    Think of these as "named colors" we can reuse everywhere.
    If you want to change the whole site's look, just edit
@@ -215,20 +247,22 @@ nav {
 
 .hero-eyebrow {
     font-family: 'Cinzel', serif;
-    font-size: 0.8rem;
-    letter-spacing: 5px;
+    font-size: 0.75rem;
+    letter-spacing: 7px;
     text-transform: uppercase;
     color: var(--accent-primary);
-    opacity: 0.7;
+    opacity: 0.45;
     margin-bottom: 1.2rem;
+    text-shadow: 0 0 20px rgba(200, 162, 78, 0.3);
 }
 
 .hero-sub {
     display: block;
-    font-size: 0.55em;
-    letter-spacing: 6px;
-    color: var(--text-muted);
-    margin-top: 0.4rem;
+    font-size: 0.5em;
+    letter-spacing: 9px;
+    color: #787878;
+    margin-top: 0.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 /* Two CTA buttons side by side */
@@ -248,7 +282,7 @@ GGG-style buttons:
   - Hover adds a glow, no bouncy translateY — feels weightier
 */
 .hero-btn {
-    font-family: 'Cinzel', serif;
+    font-family: 'FTVortex', 'Cinzel', serif;
     font-size: 0.85rem;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -316,22 +350,22 @@ That's the sweet spot for texture: felt, not seen.
     position: absolute;
     inset: 0;
     background-image:
+        radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.65) 100%),
         repeating-linear-gradient(
             45deg,
-            rgba(200, 162, 78, 0.04) 0px,
-            rgba(200, 162, 78, 0.04) 1px,
+            rgba(200, 162, 78, 0.03) 0px,
+            rgba(200, 162, 78, 0.03) 1px,
             transparent 1px,
             transparent 24px
         ),
         repeating-linear-gradient(
             -45deg,
-            rgba(200, 162, 78, 0.04) 0px,
-            rgba(200, 162, 78, 0.04) 1px,
+            rgba(200, 162, 78, 0.03) 0px,
+            rgba(200, 162, 78, 0.03) 1px,
             transparent 1px,
             transparent 24px
         );
-    pointer-events: none;  /* The pattern can't accidentally
-                              block clicks on buttons/links */
+    pointer-events: none;
     z-index: 0;
 }
 
@@ -345,25 +379,30 @@ pattern layer and disappear. z-index: 1 puts content on top.
 }
 
 .hero h1 {
+    font-family: 'FTVortex', 'Cinzel', serif;
+    font-variant: small-caps;
     font-size: clamp(2.2rem, 6vw, 4.5rem);
-    color: var(--accent-primary);
+    color: #9a6820;
     margin-bottom: 0.75rem;
     letter-spacing: 4px;
-    line-height: 1.2;
+    line-height: 1.25;
     text-shadow:
-        0 0 40px rgba(200, 162, 78, 0.4),
-        0 2px 8px rgba(0, 0, 0, 0.8);
+        0 2px 4px rgba(0, 0, 0, 1),
+        0 4px 16px rgba(0, 0, 0, 0.9);
 }
 
 .hero .tagline {
-    font-size: 1.2rem;
-    color: var(--text-muted);
+    font-size: 1.1rem;
+    color: var(--text-dim);
     margin-bottom: 2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero .tagline em {
-    color: var(--accent-danger);
+    color: rgba(255, 68, 68, 0.75);
     font-style: normal;
+    text-shadow: 0 0 16px rgba(200, 0, 0, 0.2), 0 1px 4px rgba(0,0,0,0.9);
 }
 
 /*
