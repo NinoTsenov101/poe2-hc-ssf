@@ -85,8 +85,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // ─────────────────────────────────────────────────────────────
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
+
+        // Only handle same-page anchor links (e.g. "#guides").
+        // Links to other pages (e.g. "../index.html#builds") start
+        // with a letter or dot — let the browser handle those normally.
+        if (!targetId.startsWith('#')) return;
+
+        e.preventDefault();
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
             targetSection.scrollIntoView({
