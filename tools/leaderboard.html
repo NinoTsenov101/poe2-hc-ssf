@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HC SSF Leaderboard | WRAECLAST HC</title>
+
+    <meta name="description" content="Live top 10 HC SSF characters this league. Updated in real time from poe.ninja.">
+    <meta property="og:title" content="HC SSF Leaderboard | WRAECLAST HC">
+    <meta property="og:url" content="https://ninotsenov101.github.io/poe2-hc-ssf/tools/leaderboard.html">
+
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/leaderboard.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+        </button>
+
+        <ul class="nav-links nav-left">
+            <li><a href="../index.html#guides">Guides</a></li>
+            <li><a href="../index.html#builds">Builds</a></li>
+            <li><a href="../index.html#journal">Journal</a></li>
+        </ul>
+
+        <a href="../index.html" class="logo">
+            <span class="logo-skull">☠</span>
+            <span class="logo-text">WRAECLAST<em> HC</em></span>
+        </a>
+
+        <ul class="nav-links nav-right">
+            <li><a href="../index.html#tools">Tools</a></li>
+            <li><a href="../index.html#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero">
+        <div style="position: relative; z-index: 1;">
+            <a href="../index.html#community" class="back-link">← Back to Community</a>
+            <div class="card-icon" style="width: 64px; height: 64px; font-size: 2rem; margin: 1rem auto; border-color: rgba(200,162,78,0.5); color: var(--accent-primary);">⬡</div>
+            <h1>HC SSF Leaderboard</h1>
+            <p class="tagline">The brave. The stubborn. <em>The survivors.</em></p>
+            <p class="leaderboard-source">
+                <span id="lb-league">HC SSF</span> ·
+                <span id="lb-updated"></span> ·
+                data via <a href="https://poe.ninja" target="_blank" rel="noopener">poe.ninja</a>
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div class="leaderboard-wrap">
+
+            <!-- ── LOADING STATE ── -->
+            <div class="lb-state" id="lb-loading">
+                <div class="spinner"></div>
+                <p>Fetching the fallen and the surviving...</p>
+            </div>
+
+            <!-- ── ERROR STATE ── -->
+            <div class="lb-state lb-error" id="lb-error" style="display:none;">
+                <p class="lb-error-icon">✠</p>
+                <p class="lb-error-title">Could not load leaderboard</p>
+                <p class="lb-error-msg" id="lb-error-msg"></p>
+                <p class="lb-error-sub">
+                    This usually means the API blocked our request (CORS).<br>
+                    Check the browser console for details.
+                </p>
+                <a href="https://poe.ninja/poe2/builds/vaalhcssf" target="_blank" rel="noopener" class="lb-fallback-link">
+                    View leaderboard directly on poe.ninja →
+                </a>
+            </div>
+
+            <!-- ── LEADERBOARD TABLE ── -->
+            <div id="lb-table" style="display:none;">
+
+                <div class="lb-header-row">
+                    <span class="col-rank">Rank</span>
+                    <span class="col-name">Character</span>
+                    <span class="col-class">Class</span>
+                    <span class="col-level">Level</span>
+                    <span class="col-status">Status</span>
+                </div>
+
+                <div id="lb-rows"></div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with 💀 by a fellow HC SSF exile — <a href="../index.html">WRAECLAST HC</a></p>
+        <p style="margin-top: 0.5rem;">Path of Exile 2 is developed by Grinding Gear Games. This is an unofficial fan site.</p>
+    </footer>
+
+    <button class="scroll-top" aria-label="Scroll to top">▲</button>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/leaderboard.js" defer></script>
+
+</body>
+</html>

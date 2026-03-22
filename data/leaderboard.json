@@ -1,0 +1,16 @@
+{
+  "league": "HC SSF Fate of the Vaal",
+  "updated": "2026-03-22",
+  "entries": [
+    { "name": "sargetwo",                "account": "Oskarmln",        "class": "Monk",       "level": 100, "dead": false },
+    { "name": "NeraCasualGaming",        "account": "neradus94",       "class": "Sorceress",  "level": 100, "dead": false },
+    { "name": "MizoraTheCambion",        "account": "SmashedFetus",    "class": "Witch",      "level": 99,  "dead": false },
+    { "name": "ctx_SEMATOUDEPRESSIVO",   "account": "cestarix",        "class": "Ranger",     "level": 99,  "dead": false },
+    { "name": "MoodyAndDelirious",       "account": "Moody_HC",        "class": "Monk",       "level": 99,  "dead": false },
+    { "name": "RakinESLEECHFANBOY",     "account": "Rakin7",          "class": "Mercenary",  "level": 98,  "dead": false },
+    { "name": "AUTSCHLostToAbyss",      "account": "Autsch1",         "class": "Sorceress",  "level": 98,  "dead": true  },
+    { "name": "Tholfos_Storms",          "account": "736089",          "class": "Warrior",    "level": 98,  "dead": false },
+    { "name": "everseenAsprinter",       "account": "everseen",        "class": "Ranger",     "level": 98,  "dead": false },
+    { "name": "BLUE_LIFE_ENJOYER",       "account": "tomitron",        "class": "Witch",      "level": 98,  "dead": false }
+  ]
+}
