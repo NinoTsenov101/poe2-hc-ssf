@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    ============================================================
+    THE <head> SECTION
+    ============================================================
+    This is the "brain" of your page. Nothing here is visible
+    on screen, but it gives the browser important instructions.
+
+    charset   = what characters to support (UTF-8 = everything)
+    viewport  = makes the site work properly on phones/tablets
+    title     = text shown in the browser tab
+    ============================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoE2 HC SSF — Fan Site</title>
+
+    <!--
+    This single line replaces the entire <style> block that
+    used to live here. The browser reads it and says:
+    "OK, go fetch css/style.css and apply it to this page."
+    -->
+    <!--
+    ============================================================
+    SEO & SOCIAL SHARING META TAGS
+    ============================================================
+    These tags are invisible to visitors but are read by:
+      - Google        (to understand and rank your page)
+      - Discord       (to build the link preview card)
+      - Reddit        (same)
+      - Twitter/X     (same)
+      - Facebook      (same)
+
+    "og:" stands for Open Graph — a standard invented by
+    Facebook that every major platform now follows.
+    ============================================================
+    -->
+
+    <!-- Basic SEO — what the page is about -->
+    <meta name="description" content="A fan site dedicated to Path of Exile 2 Hardcore Solo Self-Found. Guides, builds, a death journal, and tools for the brave (or stubborn).">
+    <meta name="author" content="WRAECLAST HC">
+    <meta name="keywords" content="Path of Exile 2, PoE2, HC SSF, Hardcore, Solo Self-Found, builds, guides">
+
+    <!-- Open Graph — controls how the link looks when shared -->
+    <meta property="og:title" content="PoE2 HC SSF — WRAECLAST HC">
+    <meta property="og:description" content="One life. No trade. No mercy. Guides, builds, and chronicles for HC SSF exiles.">
+    <meta property="og:type" content="website">
+
+    <!-- og:url should be your real URL once the site is live.
+         For now we leave it as a placeholder. -->
+    <meta property="og:url" content="https://wraeclasthc.github.io">
+
+    <!-- og:image is the thumbnail shown in link previews.
+         We'll add a real image in a later step.
+         For now this tag is here so you know where it lives. -->
+    <!-- <meta property="og:image" content="https://wraeclasthc.github.io/assets/images/og-preview.jpg"> -->
+
+    <!-- Twitter/X has its own slightly different tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PoE2 HC SSF — WRAECLAST HC">
+    <meta name="twitter:description" content="One life. No trade. No mercy. Guides, builds, and chronicles for HC SSF exiles.">
+
+    <!--
+    FAVICON — the tiny icon shown in the browser tab.
+    We use an SVG (a type of image made from math, not pixels)
+    that contains just one emoji. No image editor needed!
+    This trick works in all modern browsers.
+    -->
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+    <!--
+    GOOGLE FONTS
+    This line connects to Google's servers and downloads the
+    Cinzel font for every visitor automatically.
+    "preconnect" lines above it are a speed optimisation —
+    they tell the browser to open the connection early,
+    before it even reaches the font link itself.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!--
+============================================================
+THE <body> — What Users Actually See
+============================================================
+Everything visible on the page goes inside <body>.
+We've organised it into semantic sections:
+
+  <nav>     = Navigation bar
+  <header>  = Hero / banner area
+  <main>    = Primary page content
+  <footer>  = Bottom info strip
+
+"Semantic" means these tags describe WHAT the content IS,
+not just how it looks. This helps screen readers and SEO.
+============================================================
+-->
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <a href="#" class="logo">WRAECLAST<span> HC</span></a>
+
+        <!--
+        This button is INVISIBLE on desktop (hidden via CSS).
+        On mobile it appears as the ☰ icon.
+        aria-label tells screen readers what the button does
+        — good accessibility practice.
+        aria-expanded tells screen readers if the menu is open.
+        -->
+        <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <span class="hamburger-icon">☰</span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="#guides">Guides</a></li>
+            <li><a href="#builds">Builds</a></li>
+            <li><a href="#journal">Journal</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <header class="hero">
+        <h1>Path of Exile 2 — HC SSF</h1>
+        <p class="tagline">One life. No trade. <em>No mercy.</em></p>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">HC</span>
+                <span class="stat-label">Hardcore</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">SSF</span>
+                <span class="stat-label">Solo Self-Found</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Deaths Ahead</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+
+        <!-- Guides Section -->
+        <section class="section" id="guides">
+            <h2 class="section-title">Survival Guides</h2>
+            <p class="section-subtitle">Knowledge is the difference between life and Standard league.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>HC SSF Starter Guide</h3>
+                    <p>Everything you need to know before your first character. Defenses, flask management, and the golden rule: if in doubt, log out.</p>
+                    <span class="tag tag-guide">Guide</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h3>Boss Mechanics Cheatsheet</h3>
+                    <p>Visual breakdowns of every endgame boss. Know the one-shots before they know you.</p>
+                    <span class="tag tag-guide">Guide</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔧</div>
+                    <h3>Crafting for SSF</h3>
+                    <p>No trade means crafting IS your economy. Essence, fossil, and harvest strategies that actually work.</p>
+                    <span class="tag tag-guide">Guide</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Builds Section -->
+        <section class="section" id="builds">
+            <h2 class="section-title">HC SSF Builds</h2>
+            <p class="section-subtitle">Tried, tested, and survived (mostly).</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🔥</div>
+                    <h3>Infernalist — Flame Wall Ignite</h3>
+                    <p>Safe, strong, and SSF-friendly. Great league starter that scales well into endgame without chase uniques.</p>
+                    <span class="tag tag-build">Build</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❄️</div>
+                    <h3>Chronomancer — Frost Barrier</h3>
+                    <p>Maximum defense, maximum chill. Freeze everything before it touches you. The HC way.</p>
+                    <span class="tag tag-build">Build</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💀</div>
+                    <h3>Blood Mage — Exsanguinate</h3>
+                    <p>Live on the edge. Literally. This build uses your life as a resource — high risk, high reward.</p>
+                    <span class="tag tag-build">Build</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journal Section -->
+        <section class="section" id="journal">
+            <h2 class="section-title">HC Journal</h2>
+            <p class="section-subtitle">Chronicles from the front lines. Every death is a lesson.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3>Day 1 — A New Beginning</h3>
+                    <p>Starting fresh in HC SSF. The plan, the build, the dream. Let's see how long this one lasts...</p>
+                    <span class="tag tag-rip">Journal</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💀</div>
+                    <h3>RIP #47 — The Disconnect</h3>
+                    <p>Level 89. Mapping comfortably. Then the internet decided otherwise. F.</p>
+                    <span class="tag tag-rip">RIP</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="section" id="tools">
+            <h2 class="section-title">Tools & Resources</h2>
+            <p class="section-subtitle">Gear up before you gear up.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🧮</div>
+                    <h3>EHP Calculator</h3>
+                    <p>Calculate your Effective Hit Points across all damage types. Know exactly how tanky you really are.</p>
+                    <span class="tag tag-tool">Tool</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>RIP Tracker</h3>
+                    <p>Log your deaths, track patterns, and (hopefully) learn from them. Stats and graphs included.</p>
+                    <span class="tag tag-tool">Tool</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section class="section" id="community">
+            <h2 class="section-title">Community</h2>
+            <p class="section-subtitle">You play solo, but you don't have to learn solo.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Discord Server</h3>
+                    <p>Join fellow HC SSF exiles. Share your RIPs, celebrate your victories, and debate the meta.</p>
+                    <span class="tag tag-guide">Community</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3>HC SSF Leaderboard</h3>
+                    <p>Track who's pushing the highest levels this league. Will your name be next?</p>
+                    <span class="tag tag-tool">Leaderboard</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>Built with 💀 by a fellow HC SSF exile — <a href="#">WRAECLAST HC</a></p>
+        <p style="margin-top: 0.5rem;">Path of Exile 2 is developed by Grinding Gear Games. This is an unofficial fan site.</p>
+    </footer>
+
+    <!--
+    This single line replaces the entire <script> block that
+    used to live here. The browser reads it and says:
+    "OK, go fetch js/main.js and run it."
+
+    defer = "wait until the page is fully loaded before running"
+    Without defer, the script could run before the cards exist
+    and the click listeners would never attach.
+    -->
+    <script src="js/main.js" defer></script>
+
+</body>
+</html>

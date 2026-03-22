@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!--
+    A real SVG file is more reliable than embedding the image
+    directly in the HTML as a data URI.
+    The browser loads it like any other file.
+
+    We use the ☠ character (skull and crossbones) at 85pt,
+    coloured gold to match the site theme.
+  -->
+  <text y="0.9em" font-size="85" fill="#c8a24e">☠</text>
+</svg>

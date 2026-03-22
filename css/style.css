@@ -1,0 +1,410 @@
+/*
+============================================================
+STYLE.CSS — All visual design rules live here
+============================================================
+This file was separated from index.html on purpose.
+HTML = what's on the page. CSS = how it looks.
+Keeping them apart makes both files easier to read and edit.
+============================================================
+*/
+
+
+/* ── 1. CSS VARIABLES (Custom Properties) ───────────────────
+   Think of these as "named colors" we can reuse everywhere.
+   If you want to change the whole site's look, just edit
+   these values — everything updates automatically!
+   We define them on :root so they work anywhere on the page.
+─────────────────────────────────────────────────────────── */
+:root {
+    /* Dark, gritty base colors — inspired by Wraeclast */
+    --bg-darkest: #0a0a0f;
+    --bg-dark: #12121a;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: #222240;
+
+    /* Accent colors — a mix of PoE2 fire/ice/chaos */
+    --accent-primary: #c8a24e;    /* Gold — like currency drops */
+    --accent-secondary: #6e44ff;  /* Purple — like unique items */
+    --accent-danger: #ff4444;     /* Red — HC death */
+    --accent-ice: #44bbff;        /* Blue — cold skills */
+
+    /* Text colors */
+    --text-bright: #e8e6e3;
+    --text-muted: #8a8a9a;
+    --text-dim: #55556a;
+
+    /* Spacing & sizing */
+    --radius: 8px;
+    --max-width: 1200px;
+}
+
+
+/* ── 2. CSS RESET & BASE STYLES ─────────────────────────────
+   Browsers add their own default spacing and fonts.
+   A "reset" removes those defaults so our design looks
+   consistent across Chrome, Firefox, Safari, etc.
+
+   *           = "select every element on the page"
+   box-sizing  = padding doesn't add extra width (cleaner math)
+─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*
+    We list multiple fonts here as a "fallback chain".
+    The browser tries them left to right:
+      1. Cinzel        — our Google Font (loads from the web)
+      2. Palatino      — a similar serif, built into most OSes
+      3. serif         — whatever serif font the OS has
+
+    For body text we still want a readable sans-serif.
+    Cinzel is used only for headings (see below).
+    */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-darkest);
+    color: var(--text-bright);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/*
+We define a reusable class for the fantasy font.
+Anywhere we want Cinzel, we either add this class
+or reference it directly in the CSS selector.
+*/
+.font-cinzel,
+.logo,
+h1, h2, h3,
+.stat-number,
+.stat-label {
+    font-family: 'Cinzel', Palatino, serif;
+}
+
+
+/* ── 3. NAVIGATION BAR ──────────────────────────────────────
+   display: flex         = items sit side by side
+   justify-content       = logo on left, links on right
+   position: sticky      = stays at the top when you scroll
+   z-index: 100          = floats above other content
+─────────────────────────────────────────────────────────── */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--accent-primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: none;
+    letter-spacing: 3px;      /* Cinzel looks great with wide spacing */
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--accent-danger);
+    font-size: 0.75em;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;  /* Removes bullet points from <ul> */
+    gap: 2rem;         /* Space between each link */
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;  /* Smooth color change on hover */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+}
+
+/*
+.active is a class we'll add/remove with JavaScript.
+When a section is on screen, its nav link gets this class.
+When you scroll away, the class is removed.
+
+We use the same gold color as hover, plus a subtle underline
+so it's distinct from just hovering.
+*/
+.nav-links a.active {
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
+    padding-bottom: 2px;
+}
+
+
+/* ── 4. HERO SECTION ────────────────────────────────────────
+   The "hero" is the big banner at the top of a page.
+   It's the first thing visitors see — make it count!
+─────────────────────────────────────────────────────────── */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(
+        180deg,
+        var(--bg-dark) 0%,
+        var(--bg-darkest) 50%,
+        var(--bg-dark) 100%
+    );
+    border-bottom: 1px solid var(--bg-card);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 4px;       /* Wide spacing suits the engraved look */
+    text-shadow: 0 0 30px rgba(200, 162, 78, 0.3);
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.hero .tagline em {
+    color: var(--accent-danger);
+    font-style: normal;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-primary);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ── 5. CONTENT SECTIONS & CARD GRID ───────────────────────
+   Cards are a very common UI pattern — each card is a
+   self-contained piece of content.
+
+   display: grid = enables grid layout
+   repeat(auto-fit, minmax(300px, 1fr))
+     = automatically creates columns at least 300px wide,
+       and fills available space — responsive with NO media
+       queries needed just for this part!
+─────────────────────────────────────────────────────────── */
+.section {
+    max-width: var(--max-width);
+    margin: 0 auto;         /* Centers the section */
+    padding: 3rem 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 2px;
+    background: var(--accent-primary);
+    margin-top: 0.3rem;
+}
+
+.section-subtitle {
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-hover);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(200, 162, 78, 0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.card h3 {
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.card .tag {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-guide { background: rgba(110, 68, 255, 0.2); color: var(--accent-secondary); }
+.tag-build { background: rgba(200, 162, 78, 0.2); color: var(--accent-primary); }
+.tag-tool  { background: rgba(68, 187, 255, 0.2); color: var(--accent-ice); }
+.tag-rip   { background: rgba(255, 68, 68, 0.2);  color: var(--accent-danger); }
+
+
+/* ── 6. FOOTER ──────────────────────────────────────────────
+   Sits at the bottom. Centered, muted colors.
+─────────────────────────────────────────────────────────── */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--bg-card);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+
+/* ── 7. HAMBURGER BUTTON ────────────────────────────────────
+   The toggle button exists in the HTML at all times,
+   but we HIDE it on desktop. It only appears on mobile.
+─────────────────────────────────────────────────────────── */
+.nav-toggle {
+    display: none; /* Hidden on desktop — shown in mobile query below */
+    background: none;
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius);
+    color: var(--accent-primary);
+    font-size: 1.4rem;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    line-height: 1;
+}
+
+.nav-toggle:hover {
+    background: rgba(200, 162, 78, 0.1);
+}
+
+
+/* ── 8. RESPONSIVE DESIGN ───────────────────────────────────
+   @media queries let us change styles based on screen size.
+   Everything inside this block ONLY applies when the screen
+   is 768px wide or narrower (phones and small tablets).
+─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* Nav stays horizontal: logo on left, ☰ button on right */
+    nav {
+        flex-wrap: wrap; /* Allows the link list to drop below */
+    }
+
+    /* Show the hamburger button on mobile */
+    .nav-toggle {
+        display: block;
+    }
+
+    /*
+    Hide the nav links by default on mobile.
+    We use max-height instead of display:none because
+    CSS transitions can animate max-height (smooth slide),
+    but cannot animate display:none (instant snap).
+    */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        max-height: 0;           /* Collapsed — takes up no space */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav-links a {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--bg-card);
+        display: block;
+    }
+
+    /*
+    When the <nav> has the class "nav-open" (added by JS),
+    expand the link list by setting a large max-height.
+    The browser animates between 0 and this value — smooth!
+    */
+    nav.nav-open .nav-links {
+        max-height: 400px;       /* Tall enough to show all links */
+    }
+
+    /* Shrink the hero title on small screens */
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
