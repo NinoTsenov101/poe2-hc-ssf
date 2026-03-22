@@ -279,6 +279,15 @@ not just how it looks. This helps screen readers and SEO.
     Without defer, the script could run before the cards exist
     and the click listeners would never attach.
     -->
+    <!--
+    SCROLL-TO-TOP BUTTON
+    Sits outside the main content flow.
+    position: fixed in CSS pins it to the screen corner
+    regardless of how far you've scrolled.
+    aria-label tells screen readers what this button does.
+    -->
+    <button class="scroll-top" aria-label="Scroll to top">▲</button>
+
     <script src="js/main.js" defer></script>
 
 </body>

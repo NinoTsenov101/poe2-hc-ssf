@@ -10,6 +10,29 @@ multiple pages and much easier to find and edit.
 */
 
 
+// ── SCROLL-TO-TOP BUTTON ─────────────────────────────────────
+// Shows a button in the bottom-right corner after scrolling
+// down 300px. Clicking it smoothly scrolls back to the top.
+//
+// window.scrollY = how many pixels you've scrolled from the top
+// classList.toggle('visible', condition) = add the class if
+//   condition is true, remove it if false. One neat line
+//   instead of an if/else block.
+// ─────────────────────────────────────────────────────────────
+const scrollTopBtn = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+
 // ── MOBILE HAMBURGER MENU ─────────────────────────────────────
 // The toggle button shows/hides the nav links on mobile.
 //

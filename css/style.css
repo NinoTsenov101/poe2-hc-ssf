@@ -323,7 +323,51 @@ footer a {
 }
 
 
-/* ── 7. HAMBURGER BUTTON ────────────────────────────────────
+/* ── 7. SCROLL-TO-TOP BUTTON ────────────────────────────────
+   position: fixed = stays glued to the screen corner
+   even as you scroll. Coordinates are from the bottom-right.
+
+   opacity: 0 + pointer-events: none = invisible AND
+   unclickable by default. JS adds .visible to show it.
+
+   transition animates the opacity so it fades in/out
+   smoothly instead of snapping on and off.
+─────────────────────────────────────────────────────────── */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius);
+    color: var(--accent-primary);
+    font-size: 1rem;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;        /* Can't click it when invisible */
+    transition: opacity 0.3s ease, background 0.2s ease, transform 0.2s ease;
+    z-index: 200;                /* Floats above everything else */
+}
+
+.scroll-top:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+}
+
+/*
+When JS adds the .visible class, the button fades in
+and becomes clickable.
+*/
+.scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ── 8. HAMBURGER BUTTON ────────────────────────────────────
    The toggle button exists in the HTML at all times,
    but we HIDE it on desktop. It only appears on mobile.
 ─────────────────────────────────────────────────────────── */
