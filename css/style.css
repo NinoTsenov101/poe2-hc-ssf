@@ -320,9 +320,49 @@ pattern layer and disappear. z-index: 1 puts content on top.
 
 .card:hover {
     background: var(--bg-card-hover);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
+    transform: translateY(-4px);  /* Lifts a little higher than before */
     box-shadow: 0 4px 20px rgba(200, 162, 78, 0.1);
+}
+
+/*
+Each card type gets its own glow colour on hover.
+We target cards that CONTAIN a specific tag class.
+  .card:has(.tag-guide)  = "a card that has a .tag-guide inside it"
+
+:has() is a modern CSS selector — it lets a parent react
+to what's inside it. Previously this required JavaScript!
+
+The glow is two box-shadows layered together (comma-separated):
+  1. A tight, bright inner glow
+  2. A wide, soft outer glow
+Together they create a realistic light bloom effect.
+*/
+.card:has(.tag-guide):hover {
+    border-color: var(--accent-secondary);
+    box-shadow:
+        0 4px 15px rgba(110, 68, 255, 0.2),
+        0 0  30px rgba(110, 68, 255, 0.1);
+}
+
+.card:has(.tag-build):hover {
+    border-color: var(--accent-primary);
+    box-shadow:
+        0 4px 15px rgba(200, 162, 78, 0.25),
+        0 0  30px rgba(200, 162, 78, 0.12);
+}
+
+.card:has(.tag-rip):hover {
+    border-color: var(--accent-danger);
+    box-shadow:
+        0 4px 15px rgba(255, 68, 68, 0.2),
+        0 0  30px rgba(255, 68, 68, 0.1);
+}
+
+.card:has(.tag-tool):hover {
+    border-color: var(--accent-ice);
+    box-shadow:
+        0 4px 15px rgba(68, 187, 255, 0.2),
+        0 0  30px rgba(68, 187, 255, 0.1);
 }
 
 .card-icon {
