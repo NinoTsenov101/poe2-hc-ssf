@@ -403,10 +403,10 @@ We reset the link's default styles so it doesn't
 look like a blue underlined hyperlink.
 display: block makes it fill the grid cell fully.
 */
-.card-link {
+.card-link,
+.card-link * {
     text-decoration: none;
     color: inherit;
-    display: block;
 }
 
 /*
